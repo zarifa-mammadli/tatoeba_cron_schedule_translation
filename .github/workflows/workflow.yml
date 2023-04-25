@@ -1,9 +1,9 @@
 name: translation-datas-scraper
 
-on:
-  push:
-  schedule:
-    - cron: '*/10 * * * *' # runs at 12:00 UTC everyday
+# on:
+#   push:
+#   schedule:
+#     - cron: '*/10 * * * *' # runs at 12:00 UTC everyday
 
 jobs:
   build:
