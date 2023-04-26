@@ -1,9 +1,9 @@
 name: translation-datas-scraper
 
-# on:
-#   push:
-#   schedule:
-#     - cron: '*/10 * * * *' # runs at 12:00 UTC everyday
+on:
+  push:
+  schedule:
+    - cron: '*/10 * * * *' # runs at 12:00 UTC everyday
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7.7' # install the python version needed
+          python-version: '3.7' # install the python version needed
           
       - name: install python packages
         run: |
