@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import pandas as pd
-
+import pickle
 
 df = pd.read_table('modified_aze_link_sentences.tsv')
 lst = df.iloc[:, 0].tolist()[300:320]
@@ -26,7 +26,6 @@ for url in lst:
 
 list_json
 
-import pickle
 
 with open("./data/translation_datas.pickle", "wb") as fp:
     pickle.dump(list_json, fp)
