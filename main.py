@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 
 df = pd.read_table('modified_aze_link_sentences.tsv')
-lst = df.iloc[:, 0].tolist()[300:320]
+lst = df.iloc[:, 0].tolist()[320:340]
 url = 'https://github.com/zarifa-mammadli/tatoeba_cron_schedule_translation/tree/main/data'
 response = requests.get(url)
 
