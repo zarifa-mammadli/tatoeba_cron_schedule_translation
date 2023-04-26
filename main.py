@@ -33,7 +33,7 @@ import pandas as pd
 # ------------------------------------------------------------------------------    
 
 df = pd.read_table('modified_aze_link_sentences.tsv')
-lst = df.iloc[:, 0].tolist()[300:]
+lst = df.iloc[:, 0].tolist()[300:320]
 url = 'https://github.com/zarifa-mammadli/tatoeba_cron_schedule_translation/tree/main/data'
 response = requests.get(url)
 
