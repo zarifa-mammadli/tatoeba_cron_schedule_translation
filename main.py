@@ -6,6 +6,7 @@ from github import Github
 import os
 
 # ------------------------------------------------------------------------------
+
 access_token = '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'
 
 repo_name = 'tatoeba_cron_schedule_translation'
