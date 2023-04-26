@@ -33,7 +33,7 @@ for i in range(num_iterations):
         lst.append('ERROR')  
     
     
-    with open(f"./data/{start_index}_{end_index}_translation_data.pickle", "ab") as fp:
+    with open(f"./data/{start_index}_{end_index}_translation_data_test.pickle", "ab") as fp:
         pickle.dump(list_json, fp)
         fp.close()
 
