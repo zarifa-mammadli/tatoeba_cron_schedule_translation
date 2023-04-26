@@ -34,8 +34,11 @@ except:
 
 df = pd.read_table('modified_aze_link_sentences.tsv')
 lst = df.iloc[:, 0].tolist()[300:]
+url = 'https://github.com/zarifa-mammadli/tatoeba_cron_schedule_translation/tree/main/data'
+response = requests.get(url)
 
 list_json = []
+
 
 for url in lst:
     vstr = requests.get(url).content
