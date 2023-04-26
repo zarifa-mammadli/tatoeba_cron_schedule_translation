@@ -2,33 +2,33 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import pandas as pd
-from github import Github
-import os
+# from github import Github
+# import os
 
 # ------------------------------------------------------------------------------
-access_token = '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'
+# access_token = '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'
 
-repo_name = 'tatoeba_cron_schedule_translation'
+# repo_name = 'tatoeba_cron_schedule_translation'
 
-username = 'zarifa-mammadli'
+# username = 'zarifa-mammadli'
 
-folder_name = 'data'
+# folder_name = 'data'
 
-# Create a Github instance using your access token
-g = Github(access_token)
+# # Create a Github instance using your access token
+# g = Github(access_token)
 
-# Get the repository
-repo = g.get_user(username).get_repo(repo_name)
+# # Get the repository
+# repo = g.get_user(username).get_repo(repo_name)
 
-# Check if the folder already exists
-try:
-    contents = repo.get_contents(folder_name)
-    print(f"{folder_name} folder already exists")
-except:
-    # If the folder does not exist, create it
-    print(f"{folder_name} folder does not exist")
-    repo.create_file(f"{folder_name}/00.txt", "Initial commit", "")
-    print(f"{folder_name} folder created")
+# # Check if the folder already exists
+# try:
+#     contents = repo.get_contents(folder_name)
+#     print(f"{folder_name} folder already exists")
+# except:
+#     # If the folder does not exist, create it
+#     print(f"{folder_name} folder does not exist")
+#     repo.create_file(f"{folder_name}/00.txt", "Initial commit", "")
+#     print(f"{folder_name} folder created")
     
 # ------------------------------------------------------------------------------    
 
