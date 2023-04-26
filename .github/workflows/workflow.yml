@@ -1,8 +1,8 @@
 name: translation-datas-scraper
 
 on:
-push:
-schedule:
+ push:
+ schedule:
   - cron: '*/5 * * * *' # runs at every 5th minute, check crontab.guru for more info
 
 jobs:
