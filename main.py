@@ -9,8 +9,8 @@ df = pd.read_table('modified_aze_link_sentences.tsv')
 num_iterations = len(df) // 300
 
 for i in range(num_iterations):
-    start_index = i * 300
-    end_index = (i + 1) * 300
+    start_index = i * 10
+    end_index = (i + 1) * 10
     lst = df.iloc[:, 0].tolist()[start_index:end_index]
     
     list_json = []
