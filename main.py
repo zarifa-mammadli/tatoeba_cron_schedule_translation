@@ -5,33 +5,33 @@ import pandas as pd
 import pickle
 
 df = pd.read_table('modified_aze_link_sentences.tsv')
-lst = df.iloc[:, 0].tolist()[320:340]
-url = 'https://github.com/zarifa-mammadli/tatoeba_cron_schedule_translation/tree/main/data'
-response = requests.get(url)
 
-list_json = []
+num_iterations = len(df) // 300
 
+for i in range(num_iterations):
+    start_index = i * 300
+    end_index = (i + 1) * 300
+    lst = df.iloc[:, 0].tolist()[start_index:end_index]
+    
+    list_json = []
+    
+    for url in lst:
+        vstr = requests.get(url).content
+        soup = BeautifulSoup(vstr, features="html.parser")
+    
+        rows = soup.findAll('div', {"class":"sentence-and-translations md-whiteframe-1dp"})
+    
+        for row in rows:
+            data = '[' + row['ng-init'][11:-1] + ']'
+            new_data = str(data).replace("'und'", '"und"')
+            new_data = json.loads(new_data)
+            list_json.append(new_data)
+    
+    with open(f"./data/{start_index}_{end_index}_translation_data.pickle", "ab") as fp:
+        pickle.dump(list_json, fp)
+        fp.close()
 
-for url in lst:
-    vstr = requests.get(url).content
-    soup = BeautifulSoup(vstr, features="html.parser")
-
-    rows = soup.findAll('div', {"class":"sentence-and-translations md-whiteframe-1dp"})
-
-    for row in rows:
-        data = '[' + row['ng-init'][11:-1] + ']'
-        new_data = str(data).replace("'und'", '"und"')
-        new_data = json.loads(new_data)
-        list_json.append(new_data)
-
-list_json
-
-
-with open("./data/translation_datas.pickle", "wb") as fp:
-    pickle.dump(list_json, fp)
-    fp.close()
-
-# with open('sample_data/300_translation_datas.pickle', 'rb') as fp:
-#   new_list_json = pickle.load(fp)  
+#     with open(f"./data/{start_index}_{end_index}_translation_data.pickle", 'rb') as fp:
+#         new_list_json = pickle.load(fp)  
    
 # new_list_json     
