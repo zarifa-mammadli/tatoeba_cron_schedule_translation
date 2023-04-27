@@ -4,6 +4,7 @@ on:
  push:
  schedule:
    - cron: '*/30 * * * *' # runs at every 5th minute, check crontab.guru for more info
+ workflow_dispatch:
 
 jobs:
   build:
